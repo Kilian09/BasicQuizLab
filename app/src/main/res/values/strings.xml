@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">BasicQuizLab</string>
+
+    <string name="true_button_text">TRUE</string>
+    <string name="false_button_text">False</string>
+    <string name="cheat_button_text">CHEAT</string>
+    <string name="next_button_text">NEXT</string>
+    <string name="empty_text">/???</string>
+
+    <array name="question_text_array">
+        <item>Question #1. True</item>
+        <item>Question #2. False</item>
+        <item>Question #1. True</item>
+    </array>
+
+    <array name="answer_text_array">
+        <item>1</item>
+        <item>0</item>
+        <item>1</item>
+    </array>
 </resources>
