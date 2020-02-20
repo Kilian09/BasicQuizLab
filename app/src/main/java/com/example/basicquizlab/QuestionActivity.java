@@ -64,8 +64,18 @@ public class QuestionActivity extends AppCompatActivity {
         answerTextView.setText(R.string.empty_text);
     }
 
-    public void onClickButton() {
+    public void onClickButton(View view) {
+        switch (view.getId()) {
+            case R.id.trueButton:
+                onClickTrueButton(view);
+            case R.id.falseButton:
+                onClickFalseButton(view);
+            case R.id.nextButton:
+                onClickNextButton(view);
+            case R.id.cheatButton:
+                onClickCheatButton(view);
 
+        }
     }
 
     public void onClickTrueButton(View view) {
@@ -89,7 +99,6 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void onClickNextButton(View view) {
-
         if (questionIndex == questionArray.length) {
             questionIndex = 0;
             changeQuestionText();
