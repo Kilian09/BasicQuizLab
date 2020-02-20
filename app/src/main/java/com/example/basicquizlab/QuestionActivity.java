@@ -32,19 +32,20 @@ public class QuestionActivity extends AppCompatActivity {
         initLayoutContent();
     }
 
-    private void initResources() {
-        questionArray = getResources().getStringArray(R.array.question_text_array);
-        answerArray = getResources().getIntArray(R.array.answer_text_array);
-    }
-
     private void initLayoutComponents() {
-        questionTextView = findViewById(R.id.questionTextView);
-        answerTextView = findViewById(R.id.answerTextView);
 
         trueButton = findViewById(R.id.trueButton);
         falseButton = findViewById(R.id.falseButton);
         cheatButton = findViewById(R.id.cheatButton);
         nextButton = findViewById(R.id.nextButton);
+
+        questionTextView = findViewById(R.id.questionTextView);
+        answerTextView = findViewById(R.id.answerTextView);
+    }
+
+    private void initResources() {
+        questionArray = getResources().getStringArray(R.array.question_text_array);
+        answerArray = getResources().getIntArray(R.array.answer_text_array);
     }
 
     private void initLayoutContent() {
@@ -58,20 +59,30 @@ public class QuestionActivity extends AppCompatActivity {
         answerTextView.setText(R.string.empty_text);
     }
 
-    public void onClickTrueButton(View view){
+    public void onClickTrueButton(View view) {
+        if (answerArray[questionIndex] == 1) {
+            //correct
+
+        } else {
+            //incorret
+
+        }
+    }
+
+    public void onClickFalseButton(View view) {
 
     }
 
-    public void onClickFalseButton(View view){
+    public void onClickCheatButton(View view) {
 
     }
 
-    public void onClickCheatButton(View view){
+    public void onClickNextButton(View view) {
+        questionIndex++;
 
-    }
-
-    public void onClickNextButton(View view){
-
+        if(questionIndex == questionArray.length){
+            questionIndex = 0;
+        }
     }
 
 }
