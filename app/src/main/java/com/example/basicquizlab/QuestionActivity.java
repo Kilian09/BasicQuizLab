@@ -64,6 +64,13 @@ public class QuestionActivity extends AppCompatActivity {
         answerTextView.setText(R.string.empty_text);
     }
 
+    private void restart() {
+        if (questionIndex == questionArray.length) {
+            questionIndex = 0;
+
+        }
+    }
+
     public void onClickButton(View view) {
         switch (view.getId()) {
             case R.id.trueButton:
@@ -78,36 +85,35 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickTrueButton(View view) {
-        if (answerArray[questionIndex] == 1) {
-            //correct
-            answerTextView.setText(R.string.correct_text);
-        } else {
-            //incorret
-            answerTextView.setText(R.string.incorrect_text);
-        }
-    }
 
-    public void onClickFalseButton(View view) {
-        if (answerArray[questionIndex] == 0) {
-            //correct
-            answerTextView.setText(R.string.correct_text);
-        } else {
-            //incorret
-            answerTextView.setText(R.string.incorrect_text);
-        }
-    }
 
-    public void onClickNextButton(View view) {
-        if (questionIndex == questionArray.length) {
-            questionIndex = 0;
-            changeQuestionText();
-        } else {
+        public void onClickTrueButton (View view){
+            if (answerArray[questionIndex] == 1) {
+                //correct
+                answerTextView.setText(R.string.correct_text);
+            } else {
+                //incorret
+                answerTextView.setText(R.string.incorrect_text);
+            }
+        }
+
+        public void onClickFalseButton (View view){
+            if (answerArray[questionIndex] == 0) {
+                //correct
+                answerTextView.setText(R.string.correct_text);
+            } else {
+                //incorret
+                answerTextView.setText(R.string.incorrect_text);
+            }
+        }
+
+        public void onClickNextButton (View view){
+            restart();
 
             questionIndex++;
+
             changeQuestionText();
         }
-    }
 
     public void onClickCheatButton(View view) {
 
