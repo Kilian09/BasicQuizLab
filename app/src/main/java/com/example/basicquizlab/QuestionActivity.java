@@ -55,8 +55,17 @@ public class QuestionActivity extends AppCompatActivity {
         cheatButton.setText(R.string.cheat_button_text);
         nextButton.setText(R.string.next_button_text);
 
+
+    }
+
+
+    private void changeQuestionText() {
         questionTextView.setText(questionArray[questionIndex]);
         answerTextView.setText(R.string.empty_text);
+    }
+
+    public void onClickButton() {
+
     }
 
     public void onClickTrueButton(View view) {
@@ -79,16 +88,20 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickCheatButton(View view) {
-
-    }
-
     public void onClickNextButton(View view) {
-        questionIndex++;
 
         if (questionIndex == questionArray.length) {
             questionIndex = 0;
+            changeQuestionText();
+        } else {
+
+            questionIndex++;
+            changeQuestionText();
         }
+    }
+
+    public void onClickCheatButton(View view) {
+
     }
 
 }
