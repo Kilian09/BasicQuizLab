@@ -5,6 +5,8 @@
     <string name="false_button_text">False</string>
     <string name="cheat_button_text">CHEAT</string>
     <string name="next_button_text">NEXT</string>
+    <string name="correct_text">CORRECT!</string>
+    <string name="incorrect_text">INCORRECT</string>
     <string name="empty_text">/???</string>
 
     <array name="question_text_array">

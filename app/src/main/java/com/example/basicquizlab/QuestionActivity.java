@@ -62,10 +62,10 @@ public class QuestionActivity extends AppCompatActivity {
     public void onClickTrueButton(View view) {
         if (answerArray[questionIndex] == 1) {
             //correct
-
+            answerTextView.setText(R.string.correct_text);
         } else {
             //incorret
-
+            answerTextView.setText(R.string.incorrect_text);
         }
     }
 
@@ -80,7 +80,7 @@ public class QuestionActivity extends AppCompatActivity {
     public void onClickNextButton(View view) {
         questionIndex++;
 
-        if(questionIndex == questionArray.length){
+        if (questionIndex == questionArray.length) {
             questionIndex = 0;
         }
     }
