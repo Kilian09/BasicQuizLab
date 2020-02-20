@@ -70,7 +70,13 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     public void onClickFalseButton(View view) {
-
+        if (answerArray[questionIndex] == 0) {
+            //correct
+            answerTextView.setText(R.string.correct_text);
+        } else {
+            //incorret
+            answerTextView.setText(R.string.incorrect_text);
+        }
     }
 
     public void onClickCheatButton(View view) {
