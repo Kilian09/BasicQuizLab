@@ -9,18 +9,12 @@ import android.widget.TextView;
 
 public class QuestionActivity extends AppCompatActivity {
 
-    private TextView questionTextView;
-    private TextView answerTextView;
-    private Button trueButton;
-    private Button falseButton;
-    private Button cheatButton;
-    private Button nextButton;
-
-    private int questionIndex = 0;
+    private Button trueButton, falseButton, cheatButton, nextButton;
+    private TextView questionTextView, replyText;
 
     private String[] questionArray;
-
-    private int[] answerArray;
+    private int[] replyArray;
+    private int questionIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +34,12 @@ public class QuestionActivity extends AppCompatActivity {
         nextButton = findViewById(R.id.nextButton);
 
         questionTextView = findViewById(R.id.questionTextView);
-        answerTextView = findViewById(R.id.answerTextView);
+        replyText = findViewById(R.id.replyTextView);
     }
 
     private void initResources() {
-        questionArray = getResources().getStringArray(R.array.question_text_array);
-        answerArray = getResources().getIntArray(R.array.answer_text_array);
+        questionArray = getResources().getStringArray(R.array.question_array);
+        replyArray = getResources().getIntArray(R.array.reply_array);
     }
 
     private void initLayoutContent() {
@@ -55,15 +49,81 @@ public class QuestionActivity extends AppCompatActivity {
         cheatButton.setText(R.string.cheat_button_text);
         nextButton.setText(R.string.next_button_text);
 
+        setQuestionAndAnswerText();
+
+        disableNextButton();
 
     }
 
 
-    private void changeQuestionText() {
+    public void onClickButton(View view) {
+        switch (view.getId()) {
+            case R.id.trueButton:
+                onClickTrueButton(view);
+                break;
+            case R.id.falseButton:
+                onClickFalseButton(view);
+                break;
+            case R.id.nextButton:
+                onClickNextButton(view);
+                break;
+            case R.id.cheatButton:
+                onClickCheatButton(view);
+                break;
+        }
+    }
+
+    public void onClickTrueButton(View view) {
+        if (replyArray[questionIndex] == 1) {
+            //correct
+            replyText.setText(R.string.correct_text);
+        } else {
+            //incorret
+            replyText.setText(R.string.incorrect_text);
+        }
+
+        disableTopButtons();
+
+        enableNextButton();
+    }
+
+    public void onClickFalseButton(View view) {
+        if (replyArray[questionIndex] == 0) {
+            //correct
+            replyText.setText(R.string.correct_text);
+        } else {
+            //incorret
+            replyText.setText(R.string.incorrect_text);
+        }
+
+        disableTopButtons();
+
+        enableNextButton();
+    }
+
+    public void onClickNextButton(View view) {
+        questionIndex++;
+
+        restart();
+
+        setQuestionAndAnswerText();
+
+        disableNextButton();
+
+        enableTopButtons();
+    }
+
+    // Implementar boton cheat
+    public void onClickCheatButton(View view) {
+
+    }
+
+    private void setQuestionAndAnswerText() {
         questionTextView.setText(questionArray[questionIndex]);
-        answerTextView.setText(R.string.empty_text);
+        replyText.setText(R.string.empty_text);
     }
 
+    // reinicia el indice de la pregunta cuando es igual a la longitud del array
     private void restart() {
         if (questionIndex == questionArray.length) {
             questionIndex = 0;
@@ -71,52 +131,25 @@ public class QuestionActivity extends AppCompatActivity {
         }
     }
 
-    public void onClickButton(View view) {
-        switch (view.getId()) {
-            case R.id.trueButton:
-                onClickTrueButton(view);
-            case R.id.falseButton:
-                onClickFalseButton(view);
-            case R.id.nextButton:
-                onClickNextButton(view);
-            case R.id.cheatButton:
-                onClickCheatButton(view);
-
-        }
+    // habilita los botones true y false
+    private void enableTopButtons() {
+        trueButton.setEnabled(true);
+        falseButton.setEnabled(true);
     }
 
-
-
-        public void onClickTrueButton (View view){
-            if (answerArray[questionIndex] == 1) {
-                //correct
-                answerTextView.setText(R.string.correct_text);
-            } else {
-                //incorret
-                answerTextView.setText(R.string.incorrect_text);
-            }
-        }
-
-        public void onClickFalseButton (View view){
-            if (answerArray[questionIndex] == 0) {
-                //correct
-                answerTextView.setText(R.string.correct_text);
-            } else {
-                //incorret
-                answerTextView.setText(R.string.incorrect_text);
-            }
-        }
-
-        public void onClickNextButton (View view){
-            restart();
-
-            questionIndex++;
-
-            changeQuestionText();
-        }
-
-    public void onClickCheatButton(View view) {
-
+    // deshabilita los botones true y false
+    private void disableTopButtons() {
+        trueButton.setEnabled(false);
+        falseButton.setEnabled(false);
     }
 
+    // habilita el boton de next
+    private void enableNextButton() {
+        nextButton.setEnabled(true);
+    }
+
+    // deshabilita el boton de next
+    private void disableNextButton() {
+        nextButton.setEnabled(false);
+    }
 }

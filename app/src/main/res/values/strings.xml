@@ -7,15 +7,15 @@
     <string name="next_button_text">NEXT</string>
     <string name="correct_text">CORRECT!</string>
     <string name="incorrect_text">INCORRECT</string>
-    <string name="empty_text">/???</string>
+    <string name="empty_text">\???</string>
 
-    <array name="question_text_array">
+    <array name="question_array">
         <item>Question #1. True</item>
         <item>Question #2. False</item>
-        <item>Question #1. True</item>
+        <item>Question #3. True</item>
     </array>
 
-    <array name="answer_text_array">
+    <array name="reply_array">
         <item>1</item>
         <item>0</item>
         <item>1</item>

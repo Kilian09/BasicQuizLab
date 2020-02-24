@@ -48,7 +48,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/answerTextView"
+        android:id="@+id/replyTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
