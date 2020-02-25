@@ -40,4 +40,24 @@ public class CheatActivity extends AppCompatActivity {
         sureText.setText(R.string.sure_text);
         cheatReplyText.setText(R.string.empty_text);
     }
+
+
+    public void onClickCheatButtons(View view) {
+        switch (view.getId()) {
+            case R.id.noButton:
+                onClickNoButton(view);
+                break;
+            case R.id.yesButton:
+                onClickYesButton(view);
+                break;
+        }
+    }
+
+    public void onClickNoButton(View view) {
+
+    }
+
+    public void onClickYesButton(View view) {
+
+    }
 }

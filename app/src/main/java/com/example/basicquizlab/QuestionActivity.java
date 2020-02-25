@@ -56,7 +56,7 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
 
-    public void onClickButton(View view) {
+    public void onClickQuestionButtons(View view) {
         switch (view.getId()) {
             case R.id.trueButton:
                 onClickTrueButton(view);

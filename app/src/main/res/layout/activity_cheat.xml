@@ -31,6 +31,7 @@
             android:id="@+id/noButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickCheatButtons"
             tools:text="no" />
 
         <Space
@@ -41,6 +42,7 @@
             android:id="@+id/yesButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="onClickCheatButtons"
             tools:text="yes" />
 
     </LinearLayout>
