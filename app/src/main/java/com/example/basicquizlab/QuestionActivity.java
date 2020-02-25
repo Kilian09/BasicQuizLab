@@ -2,6 +2,7 @@ package com.example.basicquizlab;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -27,7 +28,6 @@ public class QuestionActivity extends AppCompatActivity {
     }
 
     private void initLayoutComponents() {
-
         trueButton = findViewById(R.id.trueButton);
         falseButton = findViewById(R.id.falseButton);
         cheatButton = findViewById(R.id.cheatButton);
@@ -115,7 +115,8 @@ public class QuestionActivity extends AppCompatActivity {
 
     // Implementar boton cheat
     public void onClickCheatButton(View view) {
-
+        Intent intent = new Intent(this,CheatActivity.class);
+        startActivity(intent);
     }
 
     private void setQuestionAndAnswerText() {
@@ -127,7 +128,6 @@ public class QuestionActivity extends AppCompatActivity {
     private void restart() {
         if (questionIndex == questionArray.length) {
             questionIndex = 0;
-
         }
     }
 
